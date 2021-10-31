@@ -13,8 +13,6 @@ router.get('/movieById', (req, res) => {
 
             if (data.length == 0) {
                 movieID = movieID.toString();
-                // var search = ImdbByID("tt0090190");
-                // res.json(ImdbByID("tt0090190"));
 
                 imdb.search({
                     id: movieID
