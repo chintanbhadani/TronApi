@@ -12,8 +12,27 @@ router.get('/movieById', (req, res) => {
         } else {
 
             if (data.length == 0) {
-                var search = ImdbByID(movieID);
-                res.json(search);
+                movieID = movieID.toString();
+                // var search = ImdbByID("tt0090190");
+                // res.json(ImdbByID("tt0090190"));
+
+                imdb.search({
+                    id: movieID
+                }, {
+                    apiKey: 'a2c8063b'
+                }).then((data) => {
+                    console.log(data);
+                    res.json(data);
+                    // return data;
+                }).catch((err) => {
+                    console.log(err);
+                    res.json(err);
+                    // return err;
+                });
+
+
+
+
             } else {
                 res.json(data);
             }
