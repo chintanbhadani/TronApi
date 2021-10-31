@@ -1,7 +1,7 @@
 # TronApi
 
 1)  http://localhost:8000/movieById?id=tt0090190
-- pass movie is
+- pass movie id
 
 2)  http://localhost:8000/movieByYear?sdate=2000-01-01&edate=2022-01-01
 - pass starting and ending date
