@@ -21,17 +21,15 @@ router.get('/movieById', (req, res) => {
                 }).then((data) => {
                     console.log(data);
                     res.json(data);
-                    // return data;
+                    
                 }).catch((err) => {
                     console.log(err);
                     res.json(err);
-                    // return err;
+                    
                 });
 
-
-
-
             } else {
+                
                 res.json(data);
             }
 
@@ -151,6 +149,38 @@ function ImdbByID(idParam) {
         return err;
     });
 }
+
+function saveUserData() {
+    const movie = new Movie();
+    // const movie = new Movie({
+    //     title: "3 idiots",
+    //     releasedyear: "2009",
+    //     rating: "chintan",
+    //     id: "1",
+    //     genres:genres.push("string to push"),
+    //     // push(1),
+    //     // genres: {
+    //     //     "genresType": "Action",
+    //     // }
+    // });
+
+    movie.title = "3 idiots"
+    movie.releasedyear = "2009-03-12";
+    movie.rating = "9";
+    movie.id = "1";
+    movie.genres.push("Action");
+
+    movie.save((err) => {
+        if (err) {
+            console.log("ParentProduct err " + err);
+        } else {
+            console.log("success !!")
+        }
+    })
+}
+
+saveUserData();
+
 
 
 
